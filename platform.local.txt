@@ -1,0 +1,2 @@
+compiler.c.extra_flags=-Wl,-T{build.source.path}/custom_memory.ld
+compiler.cpp.extra_flags=-Wl,-T{build.source.path}/custom_memory.ld

@@ -1,0 +1,18 @@
+SECTIONS
+{
+  /* Define a custom memory section */
+  .my_shared_section (NOLOAD) : 
+  {
+    . = ALIGN(4);
+    _my_shared_start = .;
+    
+    /* Keep the input sections from all files */
+    KEEP(*(.my_shared_section))
+    
+    . = ALIGN(4);
+    _my_shared_end = .;
+  } > DRAM0_0_SEG  /* Place it in internal SRAM */
+}
+
+/* Include the default memory layout */
+INCLUDE "esp32_out.ld"
